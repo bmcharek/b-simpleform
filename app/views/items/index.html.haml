@@ -1,26 +1,30 @@
 %h2 Listing items
 
-%table
-  %tr
-    %th Name
-    %th Description
-    %th
-    %th
-    %th
-
-  - @items.each do |item|
+%div.well
+  %table.table
     %tr
-      %td= item.name
-      %td= item.description
-      %td= image_tag item.avatar.url(:thumb)
-      %td
-        %div.btn-group
-          %button.btn.btn-default{:type =>"button"}  
-            = link_to 'Show', item
-          %button.btn.btn-default{:type =>"button"}  
-            = link_to 'Edit', edit_item_path(item)
-          %button.btn.btn-default{:type =>"button"}  
-            = link_to 'Destroy', item, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th Name
+      %th Description
+      %th
+        %div.text-center Image
+      %th
+
+    - @items.each do |item|
+      %tr
+        %td
+          %div.text-left
+            =link_to item.name, item_path(item)
+      
+        %td
+          %div.text-left
+            = item.description
+        %td
+          %div.text-left
+            = image_tag item.avatar.url(:thumb)
+        %td
+          %div.btn-group
+            %button.btn.btn-default{:type =>"button"}  
+              = link_to 'Destroy', item, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 %div.btn-group

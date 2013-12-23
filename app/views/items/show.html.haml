@@ -6,7 +6,30 @@
 %p
   %b Description:
   = @item.description
+%p
+  %b Published:
+  = @item.published
+%p
+  %b Reference:
+  = @item.reference
+%p
+  %b Item Type Id:
+  = @item.item_type_id
+%p
+  %b Completed:
+  = @item.completed
+%p
+  %b Archived:
+  = @item.archived
+%p
+  %b Archived at:
+  = @item.archived_at
+%p
+  %b Avatar:
+  = image_tag @item.avatar.url(:medium)
 
-= link_to 'Edit', edit_item_path(@item)
-\|
-= link_to 'Back', items_path
+%div.btn-group
+  %button.btn.btn-default{:type =>"button"}  
+    = link_to 'Edit', edit_item_path(@item)
+  %button.btn.btn-default{:type =>"button"}
+    =link_to 'Back', items_path
