@@ -1,0 +1,33 @@
+%h2 Listing items
+
+%table
+  %tr
+    %th Name
+    %th Description
+    %th
+    %th
+    %th
+
+  - @items.each do |item|
+    %tr
+      %td= item.name
+      %td= item.description
+      %td= image_tag item.avatar.url(:thumb)
+      %td
+        %div.btn-group
+          %button.btn.btn-default{:type =>"button"}  
+            = link_to 'Show', item
+          %button.btn.btn-default{:type =>"button"}  
+            = link_to 'Edit', edit_item_path(item)
+          %button.btn.btn-default{:type =>"button"}  
+            = link_to 'Destroy', item, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+%div.btn-group
+  %button.btn.btn-default{:type =>"button"}  
+    = link_to 'New Item', new_item_path
+%footer.row
+  %section.col-md-4
+    Copyright 2013
+  %section.col-md-8
+    All rights reserved.

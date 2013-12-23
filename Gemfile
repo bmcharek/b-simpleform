@@ -21,3 +21,4 @@ group :development do
   gem 'quiet_assets'
   gem 'rails_layout'
 end
+gem 'paperclip', '~> 3.0'

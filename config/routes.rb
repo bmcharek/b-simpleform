@@ -1,3 +1,5 @@
 BSimpleform::Application.routes.draw do
-  root :to => "home#index"
+  resources :items
+
+  root :to => "home#index"  
 end
